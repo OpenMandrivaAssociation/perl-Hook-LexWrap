@@ -1,15 +1,18 @@
-%define module Hook-LexWrap
+%define upstream_name    Hook-LexWrap
+%define upstream_version 0.23
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Lexically scoped subroutine wrappers
-Name:		perl-%{module}
-Version:	0.22
-Release:	%mkrel 2
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source0:	http://www.cpan.org/modules/by-module/Hook/%{module}-%{version}.zip
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Hook/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Hook::LexWrap allows you to install a pre- or post-wrapper (or both)
@@ -19,12 +22,14 @@ implements wrappers in such a way that the standard `caller' function
 works correctly within the wrapped subroutine.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
-make test
+
+%check
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -38,4 +43,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Hook
 %{_mandir}/*/*
-
