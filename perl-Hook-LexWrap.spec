@@ -1,10 +1,10 @@
 %define modname	Hook-LexWrap
-%define modver	0.24
+%define modver 0.25
 
 Summary:	Lexically scoped subroutine wrappers
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	13
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
@@ -36,4 +36,3 @@ works correctly within the wrapped subroutine.
 %doc Changes README
 %{perl_vendorlib}/Hook
 %{_mandir}/man3/*
-
