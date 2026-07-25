@@ -1,14 +1,14 @@
 %define modname	Hook-LexWrap
-%define modver 0.25
+%define modver 0.26
 
 Summary:	Lexically scoped subroutine wrappers
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	5
+Version:	%{modver}
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Hook/%{modname}-%{modver}.tar.gz
+Url:		https://github.com/karenetheridge/Hook-LexWrap
+Source0:	https://cpan.metacpan.org/authors/id/E/ET/ETHER/Hook-LexWrap-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl(Test::More)
